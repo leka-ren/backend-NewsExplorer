@@ -5,3 +5,5 @@ router.get('/');
 router.post('/');
 
 router.delete('/:articleId');
+
+module.exports = router;

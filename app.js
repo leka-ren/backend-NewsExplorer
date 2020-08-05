@@ -20,6 +20,8 @@ const { PORT = 3042 } = process.env;
 
 const baseUrl = 'mongodb://localhost:27017/newsexpdb';
 
+const NotFound = require('./customErrors/notFound');
+
 app.use(json());
 
 mongoose.connect(baseUrl, {
@@ -57,6 +59,11 @@ app.post(
 app.use(auth);
 
 app.use('/users', require('./routes/users'));
+app.use('/articles', require('./routes/articles'));
+
+app.use((req, res, next) => {
+  next(new NotFound('404 has not found'));
+});
 
 app.use(errorLogger);
 
@@ -65,6 +72,7 @@ app.use(errors());
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;
+
   res.status(statusCode).send({
     message: statusCode === 500 ? 'Somthing wrong on server' : message,
   });
