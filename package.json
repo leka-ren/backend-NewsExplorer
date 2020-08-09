@@ -4,8 +4,8 @@
   "description": "backend for NewsExplorer",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "cross-env NODE_ENV='dev' nodemon app.js",
+    "start": "cross-env NODE_ENV='prod' node app.js"
   },
   "repository": {
     "type": "git",
