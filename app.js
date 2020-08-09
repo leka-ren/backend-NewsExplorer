@@ -18,13 +18,13 @@ const auth = require('./middlewares/auth');
 
 const { PORT = 4242 } = process.env;
 
-const baseUrl = 'mongodb://localhost:27017/newsexpdb';
-
 const NotFound = require('./customErrors/notFound');
 
 app.use(json());
 
-mongoose.connect(baseUrl, {
+process.env.ADRESSDB_ENV = process.env.NODE_ENV === 'prod' ? process.env.ADRESSDB_ENV : 'mongodb://localhost:27017/newsexpdb';
+
+mongoose.connect(process.env.ADRESSDB_ENV, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
