@@ -14,6 +14,7 @@ module.exports.createArticle = (req, res, next) => {
 
   // eslint-disable-next-line object-curly-newline
   Article.create({ keyword, title, text, date, source, link, image, owner })
+    // eslint-disable-next-line no-unused-vars
     .then((article) => res.status(200).send({ data: 'Article create' }))
     // eslint-disable-next-line no-unused-vars
     .catch((e) => {
@@ -24,7 +25,8 @@ module.exports.createArticle = (req, res, next) => {
 module.exports.deleteArticle = (req, res, next) => {
   Article.findByIdAndRemove(req.params.id)
     .then((article) => {
-      if (article !== null) res.send({ data: article });
+      if (article !== null) res.status(200).send({ data: article });
+      next();
     })
     .catch(next);
 };

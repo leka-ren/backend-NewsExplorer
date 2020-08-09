@@ -16,7 +16,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const auth = require('./middlewares/auth');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 4242 } = process.env;
 
 const baseUrl = 'mongodb://localhost:27017/newsexpdb';
 
