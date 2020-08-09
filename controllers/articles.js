@@ -15,7 +15,7 @@ module.exports.createArticle = (req, res, next) => {
   // eslint-disable-next-line object-curly-newline
   Article.create({ keyword, title, text, date, source, link, image, owner })
     // eslint-disable-next-line no-unused-vars
-    .then((article) => res.status(200).send({ data: 'Article create' }))
+    .then((article) => res.status(200).send({ data: article }))
     // eslint-disable-next-line no-unused-vars
     .catch((e) => {
       next(new BadRequest('validation link failed'));
