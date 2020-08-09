@@ -5,8 +5,8 @@ ____
 
 ## Адреса для API запросов 
 
-- [https://api.mestoproject.ml/](https://api.mestoproject.ml/)
-- [https://www.api.mestoproject.ml/](https://www.api.mestoproject.ml/)
+- [https://www.api.newsexpo.ml/](https://www.api.newsexpo.ml/)
+- [https://api.newsexpo.ml/](https://api.newsexpo.ml/)
 ____
 ## Публичный IPv4
 
