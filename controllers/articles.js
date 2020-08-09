@@ -2,7 +2,7 @@ const Article = require('../models/article');
 const BadRequest = require('../customErrors/badRequest');
 
 module.exports.getArticles = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .then((articles) => res.status(200).send({ data: articles }))
     .catch(next);
 };
